@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+</head>
+<body>
+<p id="para"></p>
+<button type="button" id="btnClk">Additions</button>
+<script>
+// var btn=document.getElementById("btnClk");
+// btn.addEventListener("click",()=>{
+//     var a=10;
+//     var b=20;
+//     var c=a+b;
+//     document.getElementById("para").innerHTML="Additions of numbers is :"+c
+// })
+
+
+
+var btn=document.getElementById("btnClk");
+btn.addEventListener("keypress",function add() 
+{
+    var a=10;
+    var b=20;
+    var c=a+b;
+    document.getElementById("para").innerHTML="Additions of numbers is :"+c
+})
+</script>
+</body>
+</html>

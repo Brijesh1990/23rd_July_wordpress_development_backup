@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<script src="js/jquery.min.js"></script>
+<script>
+$(document).ready(function(){  
+$("#btn1").click(function(){
+$("#box").fadeOut(2000);
+})
+
+$("#btn2").click(function(){
+$("#box").fadeIn(2000);
+})
+$("#btn3").click(function(){
+$("#box").fadeToggle(2000);
+})
+})    
+</script>
+<style>
+.app 
+{
+width: 40%;
+height: auto;
+margin: auto;
+padding: 25px;
+margin-top: 5%;    
+background-color: blue;
+color: white;
+transition: 2s ease all;
+}    
+</style>
+</head>
+<body>
+<div id="box">
+<h1>About us</h1>
+<p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi assumenda, provident eveniet et architecto esse. Reprehenderit facilis rem aliquid est amet doloremque nisi! Beatae facilis voluptate numquam, et dicta ullam.</p>    
+</div>
+
+<button type="button" id="btn1">Hide</button>
+
+<button type="button" id="btn2">Show</button>
+
+<button type="button" id="btn3">Toggle</button>
+</body>
+</html>

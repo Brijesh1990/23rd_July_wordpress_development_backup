@@ -1,0 +1,15 @@
+body 
+{
+margin: 0;
+padding: 0;
+background-color: lightgray;    
+}
+div 
+{
+width: 70%;
+height: auto;    
+margin: auto;
+background-color: white;
+padding: 20px;
+margin-top: 5%;
+}

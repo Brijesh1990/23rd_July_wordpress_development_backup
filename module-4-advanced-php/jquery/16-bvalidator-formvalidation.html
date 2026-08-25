@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Responsive Contact Form</title>
+  <link rel="stylesheet" href="css/gray.css">
+  
+
+ <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+  <script src="js/jquery.bvalidator.min.js"></script>
+  <script src="js/default.min.js"></script>
+  <script src="js/gray.js"></script>
+  <script>
+    $(document).ready(function(){
+        $("#frm").bValidator();
+    })
+  </script>
+  <!-- Tailwind CSS 4 -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-6">
+
+  <!-- Contact Section -->
+  <section class="w-full max-w-6xl bg-white rounded-3xl shadow-2xl overflow-hidden">
+
+    <!-- 2 Grid Layout -->
+    <div class="grid grid-cols-1 md:grid-cols-2">
+
+      <!-- Left Side -->
+      <div class="bg-blue-600 text-white p-10 flex flex-col justify-center">
+        <h1 class="text-4xl font-bold mb-6">Contact Us</h1>
+
+        <p class="text-lg mb-8 leading-7">
+          Feel free to contact us anytime. We are always ready to help you with your questions and projects.
+        </p>
+
+        <div class="space-y-4">
+          <div>
+            <h3 class="font-semibold text-xl">Address</h3>
+            <p>Ahmedabad, Gujarat, India</p>
+          </div>
+
+          <div>
+            <h3 class="font-semibold text-xl">Phone</h3>
+            <p>+91 98765 43210</p>
+          </div>
+
+          <div>
+            <h3 class="font-semibold text-xl">Email</h3>
+            <p>info@example.com</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Side Form -->
+      <div class="p-10">
+        <h2 class="text-3xl font-bold text-gray-800 mb-8">
+          Send Message
+        </h2>
+
+        <form class="space-y-6" id="frm" action="welcome.html">
+
+          <!-- Name -->
+          <div>
+            <label class="block mb-2 font-medium text-gray-700">
+              Full Name
+            </label>
+
+            <input
+              type="text"
+              placeholder="Enter your name"
+              class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500" data-bvalidator="required,alpha" 
+            />
+          </div>
+
+          <!-- Email -->
+          <div>
+            <label class="block mb-2 font-medium text-gray-700">
+              Email Address
+            </label>
+
+            <input
+              type="text"
+              placeholder="Enter your email" data-bvalidator="required,email" 
+              class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+
+          <!-- Subject -->
+          <div>
+            <label class="block mb-2 font-medium text-gray-700">
+              Subject
+            </label>
+
+            <input
+              type="text"
+              placeholder="Enter subject"
+              class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500" data-bvalidator="required" 
+            />
+          </div>
+
+          <!-- Message -->
+          <div>
+            <label class="block mb-2 font-medium text-gray-700">
+              Message
+            </label>
+
+            <textarea
+              rows="5"
+              placeholder="Write your message..."
+              class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500" data-bvalidator="required" 
+            ></textarea>
+          </div>
+
+          <!-- Button -->
+          <button
+            type="submit"
+            class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-xl transition duration-300"
+          >
+            Send Message
+          </button>
+
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+</body>
+</html>

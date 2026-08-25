@@ -1,0 +1,21 @@
+@import 'tailwindcss';
+
+#main-content 
+{
+display: none;      
+margin: 0;
+padding: 0;
+overflow-x: hidden;
+}
+#loader
+{
+width: 30%;
+height: 40vh;
+margin: 0 auto;
+position: absolute;
+left: 35%;
+margin-top: 10%;
+background: url('https://htmlburger.com/blog/wp-content/uploads/2021/07/The-Best-50-Website-Preloaders-Around-the-Web-Example-13.gif') no-repeat;
+background-size: cover;
+
+}

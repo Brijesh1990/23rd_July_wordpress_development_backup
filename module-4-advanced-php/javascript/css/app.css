@@ -1,0 +1,31 @@
+body {
+background: #f5f7fb;
+}
+.app 
+{
+width: 50%;
+height: auto;
+margin: auto;    
+}
+.contact-box {
+background: #fff;
+border-radius: 12px;
+padding: 40px;
+box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.form-title {
+font-weight: 700;
+margin-bottom: 30px;
+color: #0d6efd;
+}
+
+textarea {
+resize: none;
+}
+
+@media (max-width: 576px) {
+.contact-box {
+padding: 25px;
+}
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Append Table Row</title>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+        table{
+            border-collapse: collapse;
+            width: 60%;
+            margin-top: 20px;
+        }
+
+        table, th, td{
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+
+        button{
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="addRow">Add New Row</button>
+
+    <table id="studentTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Course</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Brijesh</td>
+                <td>MERN Stack</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        $(document).ready(function(){
+
+            $("#addRow").click(function(){
+
+                $("#studentTable tbody").append(`
+                    <tr>
+                        <td>2</td>
+                        <td>Rahul</td>
+                        <td>Data Analytics</td>
+                    </tr>
+                `);
+
+            });
+
+        });
+    </script>
+
+</body>
+</html>

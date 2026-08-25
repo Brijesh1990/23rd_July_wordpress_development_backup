@@ -1,0 +1,15 @@
+#mainPage
+{
+display: none;
+position: relative;
+}
+#loader
+{
+width: 450px;
+height: 450px;    
+position: absolute;
+left: 25%;
+top: 10%;
+background: url('../images/loader.gif') no-repeat;
+background-size: cover;
+}

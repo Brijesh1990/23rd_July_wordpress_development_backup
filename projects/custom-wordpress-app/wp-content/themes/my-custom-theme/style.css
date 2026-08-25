@@ -1,0 +1,21 @@
+/**
+ * Theme Name:        Custom Themes
+ * Theme URI:         https://example.com/fabled-sunset
+ * Description:       Custom theme description...
+ * Version:           1.0.0
+ * Author:            Brijesh Kumar pandey
+ * Author URI:        https://example.com
+ * Tags:              block-patterns, full-site-editing
+ * Text Domain:       fabled-sunset
+ * Domain Path:       /assets/lang
+ * Tested up to:      6.9.5
+ * Requires at least: 6.9.5
+ * Requires PHP:      8.2
+ * License:           GNU General Public License v2.0 or later
+ * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+ */
+
+ /* call your custom css */
+@import url('assets/css/custom.css');
+
+

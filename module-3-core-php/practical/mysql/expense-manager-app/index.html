@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Panda Login</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+
+body{
+background: radial-gradient(circle at top,#0b1e35,#071426);
+}
+
+/* Panda Eyes */
+
+.eye{
+width:28px;
+height:28px;
+background:white;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+overflow:hidden;
+}
+
+.pupil{
+width:12px;
+height:12px;
+background:black;
+border-radius:50%;
+transition:.1s;
+}
+
+/* Blink */
+
+@keyframes blink{
+0%,95%,100%{height:28px}
+97%{height:2px}
+}
+
+.eye{
+animation: blink 5s infinite;
+}
+
+/* Panda Hands */
+
+.hand{
+position:absolute;
+width:40px;
+transition:.4s;
+}
+
+.hand.left{
+left:-10px;
+top:10px;
+}
+
+.hand.right{
+right:-10px;
+top:10px;
+}
+
+.cover .left{
+transform:translateY(35px) rotate(20deg);
+}
+
+.cover .right{
+transform:translateY(35px) rotate(-20deg);
+}
+
+</style>
+
+</head>
+
+<body class="flex items-center justify-center min-h-screen text-white">
+
+<div class="w-full max-w-md p-6">
+
+<!-- Card -->
+
+<div class="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-2xl shadow-2xl">
+
+<!-- Panda -->
+
+<div class="flex justify-center mb-8">
+
+<div class="relative" id="panda">
+
+<img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" class="w-28">
+
+<div class="absolute top-10 left-7 eye">
+<div class="pupil"></div>
+</div>
+
+<div class="absolute top-10 right-7 eye">
+<div class="pupil"></div>
+</div>
+<img src="https://cdn-icons-png.flaticon.com/512/616/616430.png" class="hand left">
+<img src="https://cdn-icons-png.flaticon.com/512/616/616430.png" class="hand right">
+</div>
+</div>
+<!-- Toggle -->
+<div class="flex bg-slate-800 rounded-full p-1 mb-6">
+<input type="radio" id="login" name="tab" class="hidden peer/login" checked>
+<label for="login"
+class="w-1/2 text-center py-2 rounded-full cursor-pointer text-gray-300
+peer-checked/login:bg-green-500 peer-checked/login:text-black">
+Sign In
+</label>
+
+<input type="radio" id="register" name="tab" class="hidden peer/register">
+<label for="register"
+class="w-1/2 text-center py-2 rounded-full cursor-pointer text-gray-300
+peer-checked/register:bg-green-500 peer-checked/register:text-black">
+Sign Up
+</label>
+
+</div>
+<!-- Login Form -->
+<div class="space-y-4">
+<input
+type="text"
+placeholder="Username or Email"
+class="w-full p-3 rounded-lg bg-slate-800 border border-slate-700 focus:outline-none">
+
+<input
+type="password"
+id="password"
+placeholder="Password"
+class="w-full p-3 rounded-lg bg-slate-800 border border-slate-700 focus:outline-none">
+
+<div class="flex justify-between text-sm text-gray-400">
+
+<label class="flex items-center gap-2">
+<input type="checkbox"> Remember me
+</label>
+
+<a href="#" class="text-green-400">Forgot?</a>
+
+</div>
+
+<button
+class="w-full bg-green-500 text-black font-bold py-3 rounded-lg hover:bg-green-400">
+Sign In →
+</button>
+
+</div>
+
+<!-- Social -->
+
+<div class="flex items-center gap-3 my-6 text-gray-400">
+
+<div class="flex-1 h-px bg-gray-700"></div>
+or continue with
+<div class="flex-1 h-px bg-gray-700"></div>
+
+</div>
+
+<div class="flex justify-center gap-4">
+
+<button class="bg-slate-800 px-4 py-2 rounded-lg">G</button>
+<button class="bg-slate-800 px-4 py-2 rounded-lg">GH</button>
+<button class="bg-slate-800 px-4 py-2 rounded-lg">X</button>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+/* Eyes Follow Cursor */
+
+const pupils = document.querySelectorAll(".pupil");
+
+document.addEventListener("mousemove",e=>{
+
+pupils.forEach(pupil=>{
+
+const rect = pupil.getBoundingClientRect()
+
+const x = e.clientX - rect.left - rect.width/2
+const y = e.clientY - rect.top - rect.height/2
+
+const angle = Math.atan2(y,x)
+
+const moveX = Math.cos(angle)*6
+const moveY = Math.sin(angle)*6
+
+pupil.style.transform=`translate(${moveX}px,${moveY}px)`
+
+})
+
+})
+
+
+/* Cover Eyes When Password */
+
+const password = document.getElementById("password")
+const panda = document.getElementById("panda")
+
+password.addEventListener("focus",()=>{
+panda.classList.add("cover")
+})
+
+password.addEventListener("blur",()=>{
+panda.classList.remove("cover")
+})
+
+</script>
+
+</body>
+</html>

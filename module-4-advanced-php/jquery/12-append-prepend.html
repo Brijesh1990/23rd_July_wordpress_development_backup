@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<script src="js/jquery.min.js"></script>
+<script>
+$(document).ready(function(){  
+$("#btn").click(function(){
+$("b").append("&nbsp; Pandey");
+})
+
+})    
+</script>
+<style>
+.box 
+{
+width: 40%;
+height: auto;
+margin: auto;
+padding: 25px;
+margin-top: 5%;    
+transition: 2s ease all;
+}    
+</style>
+</head>
+<body>
+<div id="box">
+<b>Brijesh</b>
+<br><br>
+<button type="button" id="btn">Append surname</button>
+</div>
+</body>
+</html>

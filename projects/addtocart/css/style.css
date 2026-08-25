@@ -1,0 +1,234 @@
+body {
+  background: #f8f9fa;
+  font-family: Arial;
+}
+
+.navbar {
+  transition: 0.3s;
+}
+
+button {
+  transition: 0.2s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+textarea {
+  resize: none;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  box-shadow: none !important;
+  border-color: #0d6efd;
+}
+
+
+
+.checkout-card {
+  animation: fadeInLeft 0.8s ease;
+}
+
+.summary-box {
+  animation: fadeInRight 0.8s ease;
+  position: sticky;
+  top: 20px;
+}
+
+button {
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+/* Card Animation */
+.account-card {
+  animation: fadeInUp 0.8s ease;
+  border-radius: 12px;
+}
+
+/* GIF Animation */
+.account-img {
+  animation: zoomIn 1s ease;
+}
+
+/* Input Styling */
+.custom-input {
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.custom-input:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 8px rgba(13, 110, 253, 0.3);
+}
+
+/* Button */
+button:hover {
+  transform: scale(1.05);
+  transition: 0.3s;
+}
+
+/* Success Circle */
+.success-icon {
+  width: 100px;
+  height: 100px;
+  background: #28a745;
+  color: #fff;
+  font-size: 50px;
+  line-height: 100px;
+  border-radius: 50%;
+  margin: auto;
+  animation: pop 0.5s ease;
+}
+
+/* Card Animation */
+.card {
+  animation: fadeInUp 0.8s ease;
+}
+
+
+
+/* Sidebar */
+.sidebar {
+  position: sticky;
+  top: 20px;
+}
+
+/* Product Card */
+.product-card {
+  border: none;
+  transition: 0.3s;
+  border-radius: 10px;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.product-img {
+  height: 180px;
+  object-fit: contain;
+  padding: 10px;
+}
+
+/* Price style */
+.price {
+  font-weight: bold;
+  color: #388e3c;
+}
+
+/* Offer badge */
+.badge-offer {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #ff6161;
+  color: white;
+  font-size: 12px;
+  padding: 3px 8px;
+  border-radius: 5px;
+}
+
+
+/* Animations */
+@keyframes pop {
+  0% {
+    transform: scale(0);
+  }
+
+  80% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Button Hover */
+.btn:hover {
+  transform: scale(1.05);
+  transition: 0.3s;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Animations */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
