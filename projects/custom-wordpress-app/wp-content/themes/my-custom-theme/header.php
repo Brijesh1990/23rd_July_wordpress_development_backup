@@ -12,6 +12,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ShopHub - Home</title>
+<!-- wp_head() load your all assets via functions.php -->
 <?php wp_head(); ?>
 </head>
 <body>
@@ -21,9 +22,12 @@ ShopHub</a><button class="navbar-toggler bg-light" type="button" data-bs-toggle=
 data-bs-target="#mainNav"><span class="navbar-toggler-icon"></span></button>
 <div class="collapse navbar-collapse" id="mainNav">
 <ul class="navbar-nav ms-auto">
-<li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+<li class="nav-item"><a class="nav-link active" href="index.php">Home</a></li>
 <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
 <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+
+<li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
+
 <li class="nav-item"><a class="nav-link" href="account.html">Account</a></li>
 <li class="nav-item"><a class="nav-link" href="cart.html">Cart (0)</a></li>
 </ul>

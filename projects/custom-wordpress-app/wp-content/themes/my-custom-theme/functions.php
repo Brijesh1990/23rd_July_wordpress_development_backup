@@ -25,7 +25,6 @@ function my_custom_theme_setup() {
 
 add_action('after_setup_theme', 'my_custom_theme_setup');
 
-
 /**
  * Enqueue styles and scripts
  */
@@ -63,6 +62,16 @@ function my_custom_theme_enqueue_assets() {
         '5.3.3',
         true
     );
+
+    // Main js called 
+     wp_enqueue_script(
+        'mainjs',
+        get_template_directory_uri() . '/assets/js/main.js',
+        array(),
+        MY_CUSTOM_THEME_VERSION,
+        true
+    );
+
 }
 
 add_action('wp_enqueue_scripts', 'my_custom_theme_enqueue_assets');
