@@ -17,20 +17,30 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg site-navbar">
-<div class="container"><a class="navbar-brand text-white" href="index.html"><span class="brand-bag">🛍️</span>
+<!-- logo -->
+<div class="container">
+
+<a class="navbar-brand text-white" href="index.html"><span class="brand-bag">🛍️</span>
 ShopHub</a><button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse"
 data-bs-target="#mainNav"><span class="navbar-toggler-icon"></span></button>
+<!-- main navbar -->
 <div class="collapse navbar-collapse" id="mainNav">
-<ul class="navbar-nav ms-auto">
-<li class="nav-item"><a class="nav-link active" href="index.php">Home</a></li>
-<li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
-<li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+<!-- load dynamic and custom navbar -->
+<?php 
+// create a function to load or display dynamic navbar
+wp_nav_menu(
+ 
+   array(
+      'theme_location' =>'primary_menu', 
+      'container'      =>false,
+      'menu_class'     =>'navbar-nav ms-auto',
+      'fallback_cb'    =>false,
+      'depth'          =>3,
 
-<li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
-
-<li class="nav-item"><a class="nav-link" href="account.html">Account</a></li>
-<li class="nav-item"><a class="nav-link" href="cart.html">Cart (0)</a></li>
-</ul>
+   )
+);
+?>
 </div>
+<!-- navbar end here -->
 </div>
 </nav>

@@ -21,6 +21,15 @@ function my_custom_theme_setup() {
 
     // Enable dynamic document title
     add_theme_support('title-tag');
+
+     // create a custom dynamic navigation or menus
+    register_nav_menus(
+        array(
+            'primary_menu'=> __('Primary Menu','my-custom-theme'), 
+            'footer_menu'=> __('Footer Menu','my-custom-theme'),
+            'sidebar_menu'=> __('Sidebar Menu','my-custom-theme')
+        )
+    ); 
 }
 
 add_action('after_setup_theme', 'my_custom_theme_setup');
@@ -71,6 +80,10 @@ function my_custom_theme_enqueue_assets() {
         MY_CUSTOM_THEME_VERSION,
         true
     );
+
+
+  
+    
 
 }
 
