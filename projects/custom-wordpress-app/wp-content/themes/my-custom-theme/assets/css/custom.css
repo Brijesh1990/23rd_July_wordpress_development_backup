@@ -226,8 +226,8 @@ body {
 }
 .navbar-nav li 
 {
-display: inline-block;
-padding: 0px 25px;
+display: inline-block !important;
+padding: 0px 25px !important;
 list-style-type: none;  
 }
 .navbar-nav a 
@@ -299,7 +299,7 @@ color: white;
     margin-bottom: 1.5rem;
   }
   .navbar-nav {
-    padding: 0.5rem 0;
+    padding: 0.5rem 0 !important;
   }
   .navbar-nav .nav-link {
     padding: 0.65rem 0 !important;

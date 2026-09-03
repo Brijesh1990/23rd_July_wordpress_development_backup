@@ -150,3 +150,38 @@ wp_add_inline_script(
 <img src="<?php echo esc_url( get_parent_theme_file_uri( 'assets/img/example.webp' ) ); ?>" alt="" />
 
 ```
+
+
+# how to load a custom page template in wordpress using functions via routing ?
+
+1. To load a custom page template in WordPress using functions via routing, you can use the `template_include` filter hook. This allows you to specify a custom template file for specific conditions.
+
+2. Here’s an example of how to do this in your theme’s `functions.php` file:
+
+```php
+function load_custom_page_template( $template ) {
+    // Check if it's a specific page by ID or slug
+    if ( is_page( 'custom-page-slug' ) ) {
+        // Specify the path to your custom template file
+        $custom_template = locate_template( 'custom-template.php' );
+        
+        // If the custom template exists, use it
+        if ( $custom_template ) {
+            return $custom_template;
+        }
+    }
+
+    // Return the default template if no custom template is found
+    return $template;
+}
+add_filter( 'template_include', 'load_custom_page_template' );
+
+
+```
+
+2. create a ourstory.php file in your theme directory and add your custom HTML/PHP code for the page template.
+
+load inside of functions.php file and then create a page in WordPress admin with the slug 'custom-page-slug' to see your custom template in action.
+
+
+
