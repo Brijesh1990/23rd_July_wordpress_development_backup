@@ -87,9 +87,7 @@ function ct_admin_menu()
 add_action('admin_menu','ct_admin_menu');
 
 /*  
-
 --------------add admin page----------------------
-
 */
 // include teams
 function ct_admin_page()
