@@ -44,8 +44,92 @@ alert('member successfully added')
 }    
 ?>
 
+
+<!-- delete team -->
+<?php  
+if(isset($_GET['delid']) && !empty($_GET['delid']))
+{
+    
+    $delid=$_GET['delid'];
+    $delete="delete from $table where id='$delid'";
+    $query=mysqli_query($mysqli,$delete);
+    echo "<script>
+    alert('member successfully deleted')
+    window.location.href='admin.php?page=custom-teams-add';
+    </script>";
+}
+
+
+// for edit team
+if(isset($_GET['editid']) && !empty($_GET['editid']))
+{
+    $editid=$_GET['editid'];
+    $select="select * from $table where id='$editid'";
+    $query=mysqli_query($mysqli,$select);
+    $fetch=mysqli_fetch_array($query);
+}
+?>
+
+<!-- update team -->
+<?php
+if(isset($_POST["upd_team"]))
+{
+    $team_name=$_POST["team_name"];
+    $team_description=$_POST["team_description"];
+    $team_leader=$_POST["team_leader"];
+    $members=$_POST["members"];
+
+    $update="update $table set team_name='$team_name',team_description='$team_description',team_leader='$team_leader',members='$members' where id='$editid'";
+    $query=mysqli_query($mysqli,$update);
+    echo "<script>
+    alert('member successfully updated')
+    window.location.href='admin.php?page=custom-teams-add';
+    </script>";
+}
+
+?>
+
 <!--add teams   -->
-<div class="wrap">
+<!-- for edit team -->
+<?php if(isset($_GET['editid']))
+{
+?>
+
+<div class="wrap">    
+<h1>Edit Teams</h1>
+<form method="post" action="">
+<?php wp_nonce_field('ct_add_team'); ?>
+<table class="form-table">
+<tr>
+<th scope="row"><label for="team_name">Edit Team Name</label></th>
+<td><input type="text" name="team_name" value="<?php echo $fetch["team_name"];?>" id="team_name" class="regular-text" required></td>
+</tr>
+<tr>
+<th scope="row"><label for="team_description">Edit Description</label></th>
+<td><textarea name="team_description" id="team_description" class="large-text" rows="4"><?php echo $fetch["team_description"];?></textarea></td>
+</tr>
+<tr>
+<th scope="row"><label for="team_leader">Edit Team Leader</label></th>
+<td><input type="text" name="team_leader" value="<?php echo $fetch["team_leader"];?>" id="team_leader" class="regular-text" required></td>
+</tr>
+<tr>
+<th scope="row"><label for="members">Edit Members Count</label></th>
+<td><input type="number" name="members" value="<?php echo $fetch["members"];?>" id="members" class="small-text" min="1" required></td>
+</tr>
+
+<tr>
+<td><input type="submit" name="upd_team" id="save_team" class="button button-primary" value="Update Teams"></td>
+</tr>
+</table>
+
+</form>
+</div>
+<?php 
+} 
+else 
+{
+ ?>
+<div class="wrap">    
 <h1>Add Teams</h1>
 <form method="post" action="">
 <?php wp_nonce_field('ct_add_team'); ?>
@@ -68,13 +152,15 @@ alert('member successfully added')
 </tr>
 
 <tr>
-<td><input type="submit" name="save_team" id="save_team" class="button button-primary" value="Save Teams"></td>
+<td><input type="submit" name="save_team" id="save_team" class="button button-primary" value="Add Teams"></td>
 </tr>
 </table>
 
 </form>
 </div>
-
+<?php 
+}
+?>
 <!-- manage teams  -->
 
 <div class="wrap">
@@ -198,30 +284,14 @@ while($fetch=mysqli_fetch_array($query))
 
 
 <td>
-<a
-href="<?php echo esc_url(
-admin_url(
-'admin.php?page=ct-edit-team&id=' . absint($fetch["id"])
-)
-); ?>"
-class="button button-small"
->
-Edit
+
+<a href="<?php echo admin_url("admin.php?page=custom-teams&editid=".$fetch['id']);?>" class="button button-small" onclick="return confirm('Are you sure you want to edit this team?')">
+    Edit
 </a>
 
-<a
-href="<?php echo esc_url(
-wp_nonce_url(
-admin_url(
-'admin.php?page=custom-teams-add&action=delete&id=' . absint($fetch["id"])
-),
-'ct_delete_team_' . absint($fetch["id"])
-)
-); ?>"
-class="button button-small"
-onclick="return confirm('Are you sure you want to delete this team?');"
->
-Delete
+
+<a href="<?php echo admin_url("admin.php?page=custom-teams&delid=".$fetch['id']);?>" class="button button-small" onclick="return confirm('Are you sure you want to delete this team?')">
+    Delete
 </a>
 </td>
 </tr>
