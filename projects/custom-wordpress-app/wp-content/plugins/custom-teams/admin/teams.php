@@ -38,9 +38,19 @@ $members=$_POST["members"];
 // stored data with query
 $insert="insert into $table(team_name,team_description,team_leader,members) values('$team_name','$team_description','$team_leader','$members')";
 $query=mysqli_query($mysqli,$insert);
+// pass a simple alert messages 
 echo "<script>
 alert('member successfully added')
 </script>";
+
+// pass a flash messages
+// if ($query) {
+//         wp_safe_redirect(
+//             admin_url('admin.php?page=custom-teams-add&message=team_deleted')
+//         );
+//         exit;
+//     }
+
 }    
 ?>
 
@@ -53,10 +63,17 @@ if(isset($_GET['delid']) && !empty($_GET['delid']))
     $delid=$_GET['delid'];
     $delete="delete from $table where id='$delid'";
     $query=mysqli_query($mysqli,$delete);
-    echo "<script>
-    alert('member successfully deleted')
-    window.location.href='admin.php?page=custom-teams-add';
-    </script>";
+    // pass a simple messages
+    // echo "<script>
+    // alert('member successfully deleted')
+    // window.location.href='admin.php?page=custom-teams-add';
+    // </script>";
+    if ($query) {
+       echo "<script>
+       window.location='admin.php?page=custom-teams-add&message=team_deleted';
+       </script>";
+        exit;
+    }
 }
 
 
@@ -162,6 +179,30 @@ else
 }
 ?>
 <!-- manage teams  -->
+<!-- flash messages area -->
+<?php
+if (isset($_GET['message']) && $_GET['message'] === 'team_deleted') {
+    ?>
+    <div id="team-delete-message" class="notice notice-success is-dismissible">
+        <p><strong>Success:</strong> Team successfully deleted.</p>
+    </div>
+
+    <script>
+    setTimeout(function () {
+        const message = document.getElementById('team-delete-message');
+
+        if (message) {
+            message.style.transition = 'opacity 0.5s ease';
+            message.style.opacity = '0';
+            setTimeout(function () {
+                message.remove();
+            }, 500);
+        }
+    }, 5000);
+    </script>
+    <?php
+}
+?>
 
 <div class="wrap">
 <h1 class="wp-heading-inline">Manage Teams</h1>
@@ -289,10 +330,22 @@ while($fetch=mysqli_fetch_array($query))
     Edit
 </a>
 
-
+<!-- 
 <a href="<?php echo admin_url("admin.php?page=custom-teams&delid=".$fetch['id']);?>" class="button button-small" onclick="return confirm('Are you sure you want to delete this team?')">
     Delete
+</a> -->
+<!-- for flash messages -->
+
+<a href="<?php echo esc_url(
+    admin_url(
+        'admin.php?page=custom-teams-add&delid=' . absint($fetch['id'])
+    )
+); ?>"
+class="button button-small"
+onclick="return confirm('Are you sure you want to delete this team?')">
+    Delete
 </a>
+
 </td>
 </tr>
 
